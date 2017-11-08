@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#find file with specified suffix and grep 'string' 
+
+helpstring='findgrep search {search-string} from .{suffix} files under current directory recusively.\nfindgrep suffix search-string'
+if [ "$#" -lt 2 ]
+then
+	echo -e $helpstring
+	exit 0
+fi
+
+suffix=$1
+search_target=$2
+
+find . -name "*.$suffix" -exec grep -i -H --color=always -n "$search_target" {} \;

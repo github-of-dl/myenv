@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#description:
+#   将当前目录中中被修改的文件放入vim中, 每一个文件一行. 删除不需要的行, 保存退出. 即完成提交文件的选择
+
+tmp_file=`mktemp`
+#echo "${tmp_file}"
+
+files=`git st -s`
+#echo "${files}"
+echo "${files}" > ${tmp_file}
+
+vim --cmd 'set cursorline' ${tmp_file}
+
+if [ $? -ne 0 ]
+then
+    echo "commit canceled"
+    exit 0
+fi
+
+gitci_files=`cat "${tmp_file}" | awk '{printf("%s ", $NF)}'`
+echo "${gitci_files}"
+
+#git log --oneline --author=wangdonglei -n 20 | sed 's/^[0-9a-z]*/#/' >${tmp_file}
+git add ${gitci_files}
+
+#git ci -e -F ${tmp_file}
+git ci
+
+rm -f ${tmp_file}

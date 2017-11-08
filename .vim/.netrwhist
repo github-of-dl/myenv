@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/wdl/projects/git-projects/tophos.git/os/src/userspace/libc'
+let g:netrw_dirhist_2='/home/wdl/projects/git-projects/tophos.git/os/src/kernel/task'
+let g:netrw_dirhist_3='/home/wdl/projects/git-projects/tophos.git/os/src/kinclude/kernel'
+let g:netrw_dirhist_4='/home/wdl/work/main/server-code/scene_service'
+let g:netrw_dirhist_5='/home/wdl/work/main/server-code/gate_service'
+let g:netrw_dirhist_6='/home/wdl/work/main/server-code/scene_service'

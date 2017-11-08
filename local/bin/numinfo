@@ -1,0 +1,54 @@
+#!/bin/bash
+# print information of a number
+# hex, oct, dec, bin
+# convert number to datetime(localzone)
+
+helpString="print information of a number\n example: 
+    numinfo 0x1a 
+    numinfo 07  
+    numinfo b101 
+    numinfo 129"
+
+if [ "$#" -lt "1" ]
+then
+    echo  -e "${helpString}"
+    exit 0
+fi
+input_number=$1
+
+dec_number=0
+case "$1" in
+	0x* | 0X*)
+		#hex
+		number=`echo ${input_number} | sed 's/0[xX]//'`
+		number=`echo "$number" | tr '[a-z]' '[A-Z]'`
+		dec_number=`echo "obase=10;ibase=16;${number}" | bc`
+		;;
+	b* | B*)
+		#binary
+		number=`echo ${input_number} | sed 's/^[bB]//'`
+		dec_number=`echo "obase=10;ibase=2;${number}" | bc`
+		;;
+	0*)
+		#oct
+		number=`echo ${input_number} | sed 's/^0//'`
+		dec_number=`echo "obase=10;ibase=8;${number}" | bc`
+		;;
+	*)
+		#dec
+		dec_number=`echo "obase=10;ibase=10;${input_number}" | bc`
+		;;
+esac
+
+bin_number=`echo "obase=2;ibase=10;${dec_number}" | bc`
+oct_number=`echo "obase=8;ibase=10;${dec_number}" | bc`
+hex_number=`echo "obase=16;ibase=10;${dec_number}" | bc`
+
+echo "dec:" $dec_number
+echo "bin:" ${bin_number}
+echo "oct:" ${oct_number}
+echo "hex:" ${hex_number}
+
+str_datetime=`date -d @${dec_number} +'%Y-%m-%d %H:%M:%S'`
+
+echo "localtime:" ${str_datetime}

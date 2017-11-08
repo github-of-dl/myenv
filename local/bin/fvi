@@ -1,0 +1,63 @@
+#!/bin/bash
+#find files with keyword
+#open them in one vim with multiple tabs
+
+if [ $# -lt 1 ]
+then
+	echo "fvi {Name|Content} keyword [suffix=*] [path=.]"
+	exit 1
+fi
+
+search_type=$1
+keyword=$2
+suffix='*'
+if [ $# -ge 3 ]
+then
+	suffix=$3
+fi
+path=.
+if [ $# -ge 4 ]
+then
+	path=$4
+fi
+
+
+# find files
+files=
+case ${search_type} in
+	n | name) # search within filenames
+		files=`find ${path} -name "*${keyword}*.${suffix}" `
+		echo ${files}
+		;;
+	c | content) # search within content of files
+		find_files=`find ${path} -name "*.${suffix}"`
+		for f in ${find_files}
+		do
+			grep -i ${keyword} $f > /dev/null
+			if [ $? -eq 0 ]
+			then
+				files="$files $f"
+			fi
+		done
+		;;
+	*)
+		echo "unknown search type ${search_type}"
+		exit 1
+		;;
+esac
+
+# remove './'
+target_files=
+for f in ${files}
+do
+	dir=`dirname "$f"`
+	if [ "${dir}" = '.' ]
+	then
+		target_files="${target_files} `basename $f`"
+	else
+		target_files="${target_files} $f"
+	fi
+done
+
+# open in vim
+vim ${target_files} -p  -c "/${keyword}"

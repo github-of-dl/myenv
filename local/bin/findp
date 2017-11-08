@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#find protobuf file and grep 'string' 
+
+helpstring='findp search "search-string" from *.hxx files under current directory recusively.\nfindp search-string'
+if [ "$#" -eq 0 ]
+then
+	echo -e $helpstring
+	exit 0
+fi
+
+search_target=$1
+findgrep hxx	$search_target

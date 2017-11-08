@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#description:
+#   将当前目录中中被修改的文件放入vim中, 每一个文件一行. 删除不需要的行, 保存退出. 即完成提交文件的选择
+
+tmp_file=`mktemp`
+#echo "${tmp_file}"
+
+files=`svn st -q`
+#echo "${files}"
+echo "${files}" > ${tmp_file}
+
+vim --cmd 'set cursorline' ${tmp_file}
+
+if [ $? -ne 0 ]
+then
+    echo "commit canceled"
+    exit 0
+fi
+
+svnci_files=`cat "${tmp_file}" | awk '{printf("%s ", $NF)}'`
+
+#echo "${svnci_files}"
+svn ci ${svnci_files}
+rm -f ${tmp_file}

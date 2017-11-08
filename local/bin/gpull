@@ -1,0 +1,10 @@
+#!/bin/bash
+
+branch=`git rev-parse --abbrev-ref HEAD`
+
+if [ $# -ge 1 ]
+then
+	branch=$1
+fi
+git pull origin ${branch}
+git fetch

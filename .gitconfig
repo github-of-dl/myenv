@@ -1,0 +1,18 @@
+[user]
+	email = wangdonglei@lk.com
+	name = wangdonglei
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+[alias]
+	d = difftool
+    st = status
+    ci = commit
+	co = checkout
+[pull]
+	default = current

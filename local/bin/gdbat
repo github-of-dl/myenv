@@ -1,0 +1,40 @@
+#!/bin/bash
+
+#description:
+#   gdb {executable} and set {breakpoint} attach {the process}
+
+#usage
+#   gdbat {executable} [breakpoint1 [breakpoint2] ]
+
+usage='gdbat {executable} [breakpoint1 [breakpoint2] ]'
+
+
+if [ "$#" -lt 1 ]
+then
+    echo "$usage"
+    exit 1
+fi
+
+path=$1
+
+executable=`basename ${path}`
+
+pid=`pgrep -u${USER} ${executable}`
+
+tmp_file=`mktemp`
+
+# create gdb command file
+shift 1
+for bp in "$@"
+do
+    echo "b $bp" >> ${tmp_file}
+done
+echo "attach $pid" >> ${tmp_file}
+echo "call sigignore(2)" >> ${tmp_file}
+echo "c" >> ${tmp_file}
+
+#cat ${tmp_file}
+# run gdb
+gdb ${path} -x ${tmp_file}
+
+rm -f ${tmp_file}

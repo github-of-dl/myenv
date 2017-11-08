@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while [ ! -f tags ]
+do
+	if [ `pwd` = '/' ]
+	then
+		echo "file[tags] not exists"
+		exit 1
+	fi
+	cd ..
+done
+
+#echo `pwd`
+#ctags -R --c++-kinds=+pls --fields=+iasS --extra=+q .
+ctags -R --c++-kinds=+ls --fields=+iasS --extra=+q .

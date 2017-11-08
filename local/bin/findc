@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#find .c and .cpp file and grep 'string' 
+
+helpstring='findc search "search-string" from .cpp and .c files under current directory recusively.\nfindc search-string'
+if [ "$#" -eq 0 ]
+then
+	echo -e $helpstring
+	exit 0
+fi
+
+search_target=$1
+findgrep cpp "$search_target"
+findgrep c	"$search_target"

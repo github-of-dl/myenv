@@ -1,0 +1,21 @@
+#!/bin/bash
+# 
+# find file 'tags' in current directory or parent directory (recursivly)
+# regenerate tags with `ctags`
+
+
+file='tags'
+
+path=`pwd`
+while [ "${path}" != '/' ]
+do
+	if [ -f ${file} ]
+	then
+		ctags -R --c++-kinds=+pls --fields=+iasS --extra=+q .	
+		exit 0
+	fi
+	cd ..
+	path=`pwd`
+done
+
+exit 1

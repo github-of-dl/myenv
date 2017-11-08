@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#find header file and grep 'string' 
+
+helpstring='findh search "search-string" from .h files under current directory recusively.\nfindh search-string'
+if [ "$#" -eq 0 ]
+then
+	echo -e $helpstring
+	exit 0
+fi
+
+search_target=$1
+findgrep h "$search_target"
