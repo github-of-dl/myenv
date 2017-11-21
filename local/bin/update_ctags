@@ -1,15 +1,23 @@
 #!/bin/bash
 
-while [ ! -f tags ]
+
+
+ctags_filelist_file_name=ctags.files
+ctags_database_file_name=tags
+
+while [ ! -f ${ctags_database_file_name} ]
 do
 	if [ `pwd` = '/' ]
 	then
-		echo "file[tags] not exists"
+		echo "file[${ctags_database_file_name}] not exists"
 		exit 1
 	fi
 	cd ..
 done
 
-#echo `pwd`
+# ignore behaviac/, hxx.pb.h, hxx.pb.h.cc
+find . ! -path '*/behaviac/*' -a ! -iname '*.hxx.pb.h' -a ! -iname '*.hxx.pb.cc' -a \( -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hxx' \) > ${ctags_filelist_file_name}
 #ctags -R --c++-kinds=+pls --fields=+iasS --extra=+q .
-ctags -R --c++-kinds=+ls --fields=+iasS --extra=+q .
+ctags --c++-kinds=-f --c++-kinds=+p --fields=+iasS --extra=+q -L ${ctags_filelist_file_name} .
+
+update_cscope

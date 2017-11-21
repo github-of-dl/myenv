@@ -1,0 +1,19 @@
+#!/bin/bash
+# update cscope
+
+cscope_filelist_file_name=cscope.files
+cscope_database_file_name=cscope.out
+
+while [ ! -f ${cscope_database_file_name} ]
+do
+	if [ `pwd` = '/' ]
+	then
+		echo "file[${cscope_database_file_name}] not exists"
+		exit 1
+	fi
+	cd ..
+done
+
+# ignore behaviac/, hxx.pb.h, hxx.pb.h.cc
+find . ! -path '*/behaviac/*' -a ! -iname '*.hxx.pb.h' -a ! -iname '*.hxx.pb.cc' -a \( -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hxx' \) > ${cscope_filelist_file_name}
+cscope -b -i ${cscope_filelist_file_name} -f ${cscope_database_file_name}

@@ -26,11 +26,11 @@ fi
 files=
 case ${search_type} in
 	n | name) # search within filenames
-		files=`find ${path} -name "*${keyword}*.${suffix}" `
+		files=`find ${path} -name "*${keyword}*${suffix}" `
 		echo ${files}
 		;;
 	c | content) # search within content of files
-		find_files=`find ${path} -name "*.${suffix}"`
+		find_files=`find ${path} -name "*${suffix}"`
 		for f in ${find_files}
 		do
 			grep -i ${keyword} $f > /dev/null

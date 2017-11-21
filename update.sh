@@ -17,4 +17,4 @@ cp -vrf $HOME/.gitconfig ${dir}/
 
 
 #local/bin
-cp -vrf $HOME/local/bin ${dir}/
+cp -vrf $HOME/local/bin ${dir}/local/
