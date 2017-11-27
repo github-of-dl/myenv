@@ -38,4 +38,4 @@ export GOPATH=$HOME/program/go
 export PYTHONPATH=$HOME/.vim/python
 
 #project.xml
-export PROJECT_FILE=project.xml
+export PROJECT_FILE=project.cfg
