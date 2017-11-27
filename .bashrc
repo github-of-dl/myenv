@@ -9,3 +9,4 @@ fi
 alias mk='make'
 alias rm='rm -i'
 alias mysqlzyj='mysql -uroot -plinekong GameDB_WDL'
+#alias vim='/home/wdl/local/vim/bin/vim'

@@ -11,6 +11,9 @@ cp -vrf $HOME/.vim ${dir}/
 #inputrc
 cp -vrf $HOME/.inputrc ${dir}/
 
+#bashprofile
+cp -vrf $HOME/.bash_profile ${dir}/
+cp -vrf $HOME/.bashrc ${dir}/
 
 #git
 cp -vrf $HOME/.gitconfig ${dir}/
