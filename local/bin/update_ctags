@@ -5,11 +5,11 @@
 ctags_filelist_file_name=ctags.files
 ctags_database_file_name=tags
 
-while [ ! -f ${ctags_database_file_name} ]
+while [ ! -f ${PROJECT_FILE} ]
 do
 	if [ `pwd` = '/' ]
 	then
-		echo "file[${ctags_database_file_name}] not exists"
+		echo "file[${PROJECT_FILE}] not exists"
 		exit 1
 	fi
 	cd ..

@@ -4,11 +4,11 @@
 cscope_filelist_file_name=cscope.files
 cscope_database_file_name=cscope.out
 
-while [ ! -f ${cscope_database_file_name} ]
+while [ ! -f ${PROJECT_FILE} ]
 do
 	if [ `pwd` = '/' ]
 	then
-		echo "file[${cscope_database_file_name}] not exists"
+		echo "file[${PROJECT_FILE}] not exists"
 		exit 1
 	fi
 	cd ..
