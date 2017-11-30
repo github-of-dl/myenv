@@ -2,7 +2,7 @@
 
 
 
-ctags_filelist_file_name=ctags.files
+ctags_filelist_file_name=.ctags.files
 ctags_database_file_name=tags
 
 change_to_project_root_path
