@@ -51,15 +51,12 @@ export -f project_root_path
 
 function change_to_project_root_path()
 {
-	while [ ! -f ${PROJECT_FILE} ]
-	do
-		if [ `pwd` = '/' ]
-		then
-			echo "file[${PROJECT_FILE}] not exists"
-			return 1
-		fi
-		cd ..
-	done
+	path=`project_root_path`
+	if [ -z "${path}" ]
+	then
+		return 1
+	fi
+	cd ${path}
 	return 0
 }
 export -f change_to_project_root_path
