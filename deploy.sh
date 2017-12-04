@@ -21,3 +21,8 @@ cp -vrf ${dir}/.gitconfig $HOME/.gitconfig
 
 #local
 cp -vrf ${dir}/local $HOME
+
+#c
+cd c
+make install
+cd -
