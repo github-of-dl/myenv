@@ -4,6 +4,10 @@
 
 dir=`dirname $0`
 
+#----prepare
+mkdir -p $HOME/local/bin/
+
+#----install
 #vim
 cp -vrf ${dir}/.vimrc $HOME/.vimrc
 cp -vrf ${dir}/.vim $HOME/
@@ -24,5 +28,6 @@ cp -vrf ${dir}/local $HOME
 
 #c
 cd c
-make install
+make all
+cp -f bin/* $HOME/local/bin/
 cd -
