@@ -30,7 +30,7 @@ ulimit -c 1000000
 ulimit -n 4090
 
 
-export GOROOT=/home/wdl/local/matual/go
+export GOROOT=${HOME}/local/matual/go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/program/go
 
