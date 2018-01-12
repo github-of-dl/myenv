@@ -26,8 +26,11 @@
 #		usage: session_cfg
 
 # related files:
-#		${HOME}/.session_rti
-# 		${HOME}/.session_cfg
+#		${HOME}/.session_mgr_rti
+# 		${HOME}/.session_mgr_cfg
+
+# environment:
+#		${SESSION_TAG} tag of current session
 
 # format: session-pid tag
 #		33042 vim
