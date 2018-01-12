@@ -27,7 +27,6 @@ function init_env_according_to_session_type
 
 		local line=`grep "${session_tag}" ${SESSION_CONFIG_FILE}`
 		local default_pwd=`echo $line | cut -d' ' -f2`
-		cat ${SESSION_RUNTIME_INFO_FILE}
 		cd ${HOME}/${default_pwd}
 	fi
 
