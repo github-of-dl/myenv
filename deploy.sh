@@ -20,8 +20,10 @@ cp -vrf ${dir}/.bash_profile ${HOME}/
 cp -vrf ${dir}/.bashrc $HOME
 cp -vrf ${dir}/.bash_func.d $HOME/
 
-#session_mgr
-cp -vrf ${dir}/.session_tag_cfg $HOME/
+#session_tag
+cd session_tag/
+sh install.sh
+cd -
 
 #git
 cp -vrf ${dir}/.gitconfig $HOME/.gitconfig
