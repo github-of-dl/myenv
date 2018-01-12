@@ -14,7 +14,7 @@ function pid_of_current_session()
 }
 export -f pid_of_current_session
 
-function init_env_according_to_session_type
+function init_env_according_to_session_tag
 {
 	local SESSION_RUNTIME_INFO_FILE=$HOME/.session_mgr_rti
 	local SESSION_CONFIG_FILE=$HOME/.session_mgr_cfg
@@ -31,5 +31,4 @@ function init_env_according_to_session_type
 	fi
 
 }
-init_env_according_to_session_type
-
+init_env_according_to_session_tag
