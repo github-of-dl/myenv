@@ -1,0 +1,34 @@
+#!/bin/bash
+
+function pid_of_current_session()
+{
+	local pid=$$
+	local lvl=$SHLVL
+	while [ $lvl -gt 0 ]
+	do
+		pid=`ps -oppid $pid | tail -n1`
+		((lvl--))
+	done
+	echo ${pid}
+	return 0
+}
+export -f pid_of_current_session
+
+function init_env_according_to_session_tag
+{
+	local SESSION_RUNTIME_INFO_FILE=$HOME/.session_mgr_rti
+	local SESSION_CONFIG_FILE=$HOME/.session_mgr_cfg
+	
+	if [ -f ${SESSION_RUNTIME_INFO_FILE} -a -f ${SESSION_CONFIG_FILE} ]
+	then
+		local session_pid=`pid_of_current_session`
+		local session_tag=`grep "${session_pid}" ${SESSION_RUNTIME_INFO_FILE} | cut -d' ' -f2`
+		export SESSION_TAG=${session_tag}
+
+		local line=`grep "${session_tag}" ${SESSION_CONFIG_FILE}`
+		local default_pwd=`echo $line | cut -d' ' -f2`
+		cd ${HOME}/${default_pwd}
+	fi
+
+}
+init_env_according_to_session_tag
