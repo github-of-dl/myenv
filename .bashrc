@@ -14,6 +14,15 @@ alias mysqlzyj='/usr/local/mysql/bin/mysql -uroot -plinekong GameDB_WDL'
 
 
 
+# User specific functions
+if [ -d ~/.bash_func.d ]
+then
+	files=`ls ~/.bash_func.d/*.func`
+	for f in $files
+	do
+		. $f
+	done
+fi
 
 
 # User specific functions
@@ -60,3 +69,6 @@ function change_to_project_root_path()
 	return 0
 }
 export -f change_to_project_root_path
+
+
+

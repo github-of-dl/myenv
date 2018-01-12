@@ -18,6 +18,10 @@ cp -vrf ${dir}/.inputrc $HOME/.inputrc
 #bashprofile
 cp -vrf ${dir}/.bash_profile ${HOME}/
 cp -vrf ${dir}/.bashrc $HOME
+cp -vrf ${dir}/.bash_func.d $HOME/
+
+#session_mgr
+cp -vrf ${dir}/.session_mgr_cfg $HOME/
 
 #git
 cp -vrf ${dir}/.gitconfig $HOME/.gitconfig
