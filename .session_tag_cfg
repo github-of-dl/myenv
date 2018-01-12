@@ -1,2 +1,3 @@
 vim local/bin
 fakeclient work/fakeclient.git
+myenv myproject/myenv.git

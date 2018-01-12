@@ -53,8 +53,8 @@ function init_env_according_to_session_tag()
 	# file format: session-pid tag
 	#		33042 vim
 	# 		33042 gamedev
-	local SESSION_RUNTIME_INFO_FILE=$HOME/.session_mgr_rti
-	local SESSION_RUNTIME_INFO_FILE_TMP=$HOME/.session_mgr_rti.tmp
+	local SESSION_RUNTIME_INFO_FILE=$HOME/.session_tag_rti
+	local SESSION_RUNTIME_INFO_FILE_TMP=$HOME/.session_tag_rti.tmp
 	if [ ! -f ${SESSION_RUNTIME_INFO_FILE} ]
 	then
 		touch ${SESSION_RUNTIME_INFO_FILE}
@@ -62,7 +62,7 @@ function init_env_according_to_session_tag()
 
 	# file format: tag default-pwd
 	#		myenv ${HOME}/myproject/myenv.git
-	local SESSION_CONFIG_FILE=$HOME/.session_mgr_cfg
+	local SESSION_CONFIG_FILE=$HOME/.session_tag_cfg
 	if [ ! -f ${SESSION_CONFIG_FILE} ]
 	then
 		touch ${SESSION_CONFIG_FILE}
