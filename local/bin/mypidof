@@ -1,0 +1,32 @@
+#!/bin/bash
+#mypidof -f file
+#mypidof -c cmd
+
+if [ $# -lt 2 ]
+then
+	exit 1
+fi
+
+opt=$1
+str=$2
+
+pids=
+# get pids using pidof
+if [ "$opt" = "-f" ]
+then
+	file_of_full_path=`readlink -f ${str}`
+	pids=`pidof ${file_of_full_path}`
+elif [ "$opt" = "-c" ]
+then
+	cmd=${str}
+	pids=`pidof ${cmd}`
+fi
+
+for id in ${pids}
+do
+	ps ux | grep -q "[ ]${id}"
+	if [ $? -eq 0 ]
+	then
+		echo ${id}
+	fi
+done
