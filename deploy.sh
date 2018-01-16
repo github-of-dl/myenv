@@ -37,3 +37,6 @@ cd c
 make all
 cp -f bin/* $HOME/local/bin/
 cd -
+
+#tmux
+cp -vrf .tmux.conf .tmux ${HOME}

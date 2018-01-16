@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# create session
+# param1: name
+# param2: default path
+# param3: type 
+#			project: (deploy, gdb, log, pb, server-code, conf)
+#			monitor: 
+#
+
+#---define----
+init_window_list="deploy gdb log pb server-code conf"
+
+if [ $# -lt 2 ]
+then
+	echo "tmuxtools name default-path [create-windows]"
+	exit 1 
+fi
+
+name=$1
+default_path=$2
+type="default"
+
+if [ $# -ge 3 ]
+then
+	type=$3
+fi
+
+
+if [ "$type" = "default" ]
+then
+	tmux new-session -d -s "${name}" -n "$w"
+	tmux set-window-opt -t "${name}" default-path "${default_path}"
+elif [ "$type" = "project" ]
+then
+	first=1
+	for w in ${init_window_list}
+	do
+		if [ $first -eq 1 ]
+		then
+			tmux new-session -d -s "${name}" -n "$w"
+			tmux set-window-opt -t "${name}" default-path "${default_path}"
+			first=0
+		else
+			tmux new-window -t "${name}" -n "$w"
+		fi
+	done
+	tmux set-option -t "${name}" status-right "#(hostname -I | awk '{print \$1}') ${default_path}"
+elif [ "$type" = "minotor" ]
+then
+	:
+fi
