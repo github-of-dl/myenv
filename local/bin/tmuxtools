@@ -9,7 +9,7 @@
 #
 
 #---define----
-init_window_list="deploy gdb log pb server-code conf"
+init_window_list="deploy gdb log clientpb serverpb servercode servercode conf"
 
 if [ $# -lt 2 ]
 then
