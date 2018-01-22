@@ -20,7 +20,8 @@ alias mysqlzyj='/usr/local/mysql/bin/mysql -uroot -plinekong'
 # User specific functions
 if [ -d ~/.bash_func.d ]
 then
-	files=`ls ~/.bash_func.d/*.func`
+	#files=`ls ~/.bash_func.d/*.func`
+	files=`find ~/.bash_func.d/ -name '*.func'`
 	for f in $files
 	do
 		. $f
