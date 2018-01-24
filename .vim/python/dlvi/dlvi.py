@@ -8,6 +8,7 @@ from dlvi import easycpp
 from dlvi import utility
 from dlvi import rfb
 from dlvi import redmine
+from dlvi import align 
 
 def DLVI_GetMyReadmine():
 	w = vim.current.window
@@ -83,3 +84,18 @@ def DLVI_ClipBoard_NMode():
 
 	text = utility.get_last_search_text();
 	rfb.send_to_host_clipboard(ip,port, text);
+
+def DLVI_Vertical_Align(*seps):
+	#print(seps);
+	w = vim.current.window
+	b = vim.current.buffer;
+	select_range = vim.current.range;
+		
+	original_lines=[]
+	for idx in range(select_range.start, select_range.end+1):
+		original_lines.append( b[idx] );
+
+	align_lines = align.vertical_align(original_lines, seps);
+
+	for idx in range(select_range.start, select_range.end+1):
+		utility.set_line(b, idx, align_lines[idx-select_range.start]);

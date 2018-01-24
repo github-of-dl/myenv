@@ -66,4 +66,5 @@ noremap i :py DLVI_ImplementMethod()<CR>
 noremap m :py DLVI_GetMyReadmine()<CR>
 vmap y :py DLVI_ClipBoard_VMode()<CR>	
 nmap y :py DLVI_ClipBoard_NMode()<CR>
+vmap = :py DLVI_Vertical_Align('<','>',' ', '//')<CR>
 """""""""""""""""""""""""""""""""""
