@@ -82,7 +82,7 @@ def vertical_align(lines, seps):
 		for i in range(0, len(line)):
 			part=line[i];
 			part_max_len=part_len_array[i];
-			if(len(outline) > 0):
+			if(i!=0):
 				outline=outline+' ';
 			outline=outline + part;
 			for j in range(len(part), part_max_len):
