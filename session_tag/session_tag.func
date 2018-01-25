@@ -13,7 +13,7 @@
 #			release.xsh
 #			hotfix.xsh
 # If I connect to remote server with 'debug.xsh', I want to change directory to ${HOME}/debug/ automatically.
-# This can be archieved with login-script. BUT the login-script isn't executed when a new connection is duplicated.
+# This can be achieved with login-script. BUT the login-script isn't executed when a new connection is duplicated.
 
 # This script provides a way to tag a session(a group of ssh connections that belong to one session).
 # All ssh connections that belong to one session has the same tag.
