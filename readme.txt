@@ -20,7 +20,12 @@ rfb:
 
 local/bin/
 	fvi: 从文件名/内容中搜索关键字, 将文件用vim打开(多tab页)
+	listsz: 按照大小列出当前目录下所有文件(目录)
 
+
+
+
+TODO:
 	project: 
 		project: 显示当前项目信息 {根目录} 
 		project create {projname}: 在当前目录创建名为${projname}的project
