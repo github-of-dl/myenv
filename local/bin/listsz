@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+filelist=
+
+for f in `ls -a`
+do
+	if [ "$f" != "." -a "$f" != ".." ]
+	then
+		filelist="${filelist}  $f"
+	fi
+done
+
+du -sh ${filelist} | sort -h -r

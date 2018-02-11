@@ -16,3 +16,11 @@ session_tag:
 rfb:
 	将当前vim中选中的内容发送到本地主机. 本地主机接受到数据后, 根据消息id处理
 		- 将数据发送到本地主机的剪切板中
+
+
+local/bin/
+	fvi: 从文件名/内容中搜索关键字, 将文件用vim打开(多tab页)
+
+	project: 
+		project: 显示当前项目信息 {根目录} 
+		project create {projname}: 在当前目录创建名为${projname}的project

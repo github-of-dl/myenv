@@ -51,4 +51,4 @@ echo "hex:" ${hex_number}
 
 str_datetime=`date -d @${dec_number} +'%Y-%m-%d %H:%M:%S'`
 
-echo "localtime:" ${str_datetime}
+echo "localtime:" ${str_datetime} "(`date +%::z`)"
