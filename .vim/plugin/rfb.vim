@@ -6,7 +6,12 @@
 "let g:RFB_LocalPort=21032
 
 function DLFB_Init()
-	execute ":pyf ~/.vim/python/dlvi/rfb.py"
+	if has('python')
+		execute ":pyf ~/.vim/python/dlvi/rfb.py"
+	elif has('python3')
+		execute ":py3f ~/.vim/python/dlvi/rfb.py"
+	endif
+		
 	if !exists("g:RFB_LocalIp")
 		let l:localip=$SSH_CONNECTION
 		let l:idx=stridx(localip, ' ')
@@ -18,4 +23,6 @@ function DLFB_Init()
 	endif
 endfunction
 
-call DLFB_Init()
+if has('python') || has('python3')
+	call DLFB_Init()
+endif

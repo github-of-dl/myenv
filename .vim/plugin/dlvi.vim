@@ -32,7 +32,13 @@ endif
 
 
 " load python
-execute ":pyf ~/.vim/python/dlvi/dlvi.py"
+if has('python')
+	execute ":pyf ~/.vim/python/dlvi/dlvi.py"
+elif has('python3')
+	execute ":py3f ~/.vim/python/dlvi/dlvi.py"
+else
+	"
+endif
 
 """"""""""""cscope""""""""""""""
 if has('cscope')

@@ -1,0 +1,14 @@
+install:
+	ctags
+	mysl-server
+	libmysqlclient-dev
+	vim
+	git
+	virtualbox
+	keepass2
+
+terminal:
+	config: run command as a login-shell.
+
+move launcher to bottom:
+	gsettings set com.canonical.Unity.Launcher launcher-position Bottom

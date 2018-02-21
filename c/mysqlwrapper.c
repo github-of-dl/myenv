@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-#include <mysql.h>
+#include <mysql/mysql.h>
 
 int wrapper_conn(MYSQL *conn, const char *host, const char *user, const char *password, const char *db);
 int wrapper_exe(MYSQL *conn, const char *sql);
