@@ -13,6 +13,7 @@ alias mk='make'
 alias rm='rm -i'
 alias mysqlzyj='/usr/local/mysql/bin/mysql -uroot -plinekong'
 alias ls='ls --color=auto'
+alias bc='bc -l'
 #alias vim='/home/wdl/local/vim/bin/vim'
 
 

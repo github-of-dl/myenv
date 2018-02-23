@@ -6,6 +6,7 @@ install:
 	git
 	virtualbox
 	keepass2
+	tmux
 
 terminal:
 	config: run command as a login-shell.
