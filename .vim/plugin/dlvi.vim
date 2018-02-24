@@ -34,7 +34,7 @@ endif
 " load python
 if has('python')
 	execute ":pyf ~/.vim/python/dlvi/dlvi.py"
-elif has('python3')
+elseif has('python3')
 	execute ":py3f ~/.vim/python/dlvi/dlvi.py"
 else
 	"

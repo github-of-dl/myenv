@@ -8,7 +8,7 @@
 function DLFB_Init()
 	if has('python')
 		execute ":pyf ~/.vim/python/dlvi/rfb.py"
-	elif has('python3')
+	elseif has('python3')
 		execute ":py3f ~/.vim/python/dlvi/rfb.py"
 	endif
 		
