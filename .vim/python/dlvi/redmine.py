@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import urllib
-import urllib2
+#import urllib2
 
 import httplib2
 from pyquery import PyQuery as pq

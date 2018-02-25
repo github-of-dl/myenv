@@ -6,7 +6,7 @@ import os
 import re
 import time
 
-import utility
+from dlvi import utility
 
 ######internal methods#######
 def is_prefixed_with_comment(line):

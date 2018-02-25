@@ -1,13 +1,16 @@
 #!/bin/bash
 # deploy
 
+# ===================config=========================
+local_dir=$HOME/local
+
 
 dir=`dirname $0`
 
-#----prepare
-mkdir -p $HOME/local/bin/
+#----------------------prepare-----------------------
+mkdir -p ${local_dir}
 
-#----install
+#----------------------install-----------------------
 #vim
 cp -vrf ${dir}/.vimrc $HOME/.vimrc
 cp -vrf ${dir}/.vim $HOME/
@@ -30,12 +33,12 @@ cp -vrf ${dir}/.gitconfig $HOME/.gitconfig
 
 
 #local
-cp -vrf ${dir}/local $HOME
+cp -vrf ${dir}/local/* ${local_dir}
 
 #c
 cd c
 make all
-cp -f bin/* $HOME/local/bin/
+cp -vrf bin ${local_dir}/
 cd -
 
 #tmux
