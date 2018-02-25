@@ -5,8 +5,11 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# disbale flow control
-stty -ixon
+# disbale flow control (ctrl-S ctrl-Q)
+if [ -t 0 ] # avoid error message 'stty: standard input: Invalid argument' when executed within interactive shell, 
+then
+	stty -ixon
+fi
 
 # User specific aliases
 alias mk='make'
