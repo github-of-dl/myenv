@@ -1,6 +1,13 @@
-map key with xkb
+map key with xkb 
+	configure file in Ubuntu: 
+		/usr/share/X11/xkb/symbols/pc)
+	reload:
+		setxkbmap -layout us	
+	------------------------------
 	capslock -> lshift
 		key <CAPS> {    [ Shift_L       ]   };
 	lshift -> lctrl
 		key <LFSH> {    [ Control_R     ]   };
 		// key <LFSH> {    [ Control_L     ]   }; // left not working
+
+	-----------------------------	
