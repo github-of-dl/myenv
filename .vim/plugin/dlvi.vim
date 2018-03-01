@@ -33,9 +33,9 @@ endif
 
 " load python
 if has('python')
-	execute ":pyf ~/.vim/python/dlvi/dlvi.py"
+	execute ":pyf ~/.vim/python/dlvi/interface.py"
 elseif has('python3')
-	execute ":py3f ~/.vim/python/dlvi/dlvi.py"
+	execute ":py3f ~/.vim/python/dlvi/interface.py"
 else
 	"
 endif

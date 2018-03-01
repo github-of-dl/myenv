@@ -6,6 +6,8 @@ import os
 import re
 import time
 
+from dlvi import utility
+
 ######internal methods#######
 def is_prefixed_with_comment(line):
 	return re.match('\s*//', line) or re.match('\s*/\*', line);

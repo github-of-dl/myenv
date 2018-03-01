@@ -4,6 +4,10 @@ import re
 import time
 import sys
 
+from dlvi import utility
+from dlvi import rfb
+from dlvi import easycpp
+
 def DLVI_GetMyReadmine():
 	w = vim.current.window
 	b = vim.current.buffer;
