@@ -2,7 +2,7 @@
 # deploy
 
 # ===================config=========================
-local_dir=$HOME/local
+local_dir=$HOME/.local/
 
 
 dir=`dirname $0`

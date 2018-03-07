@@ -8,9 +8,9 @@ fi
 
 # User specific environment and startup programs
 
-export LD_LIBRARY_PATH=.:/usr/local/lib/:/usr/local/gcc-4.3.5/lib/:/usr/local/mysql/lib:$HOME/local/bin
+export LD_LIBRARY_PATH=.:/usr/local/lib/:/usr/local/gcc-4.3.5/lib/:/usr/local/mysql/lib
 
-export PATH=$PATH:$HOME/local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 export LANG=en_US.utf8
 #export LANG=zh_CN

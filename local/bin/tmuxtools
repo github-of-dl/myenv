@@ -4,12 +4,12 @@
 # param1: name
 # param2: default path
 # param3: type 
-#			project: (deploy, gdb, log, pb, server-code, conf)
+#			project: 
 #			monitor: 
 #
 
 #---define----
-init_window_list="deploy gdb log clientpb serverpb servercode servercode conf"
+init_window_list="servercode servercode servercode pb conf gdb log"
 
 if [ $# -lt 2 ]
 then
