@@ -7,6 +7,7 @@ import sys
 from dlvi import utility
 from dlvi import rfb
 from dlvi import easycpp
+from dlvi import redmine
 
 def DLVI_GetMyReadmine():
 	w = vim.current.window
