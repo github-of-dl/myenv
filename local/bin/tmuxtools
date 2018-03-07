@@ -19,7 +19,8 @@ fi
 
 name=$1
 default_path=`readlink -f $2`
-show_default_path=`readlink -f $2 |sed "s|$HOME/||"`
+show_default_path=`readlink -f ${default_path} |sed "s|$HOME/||"`
+cd ${default_path}
 type="default"
 
 if [ $# -ge 3 ]
@@ -27,11 +28,11 @@ then
 	type=$3
 fi
 
+remote_server_ip=`hostname -I | awk '{print $1}' | awk -F. '{print $3 "." $4}'`
 
 if [ "$type" = "default" ]
 then
-	tmux new-session -d -s "${name}" -n "$w"
-	tmux set-window-opt -t "${name}" default-path "${default_path}"
+	tmux new-session -d -s "${name}"
 elif [ "$type" = "project" ]
 then
 	first=1
@@ -40,14 +41,13 @@ then
 		if [ $first -eq 1 ]
 		then
 			tmux new-session -d -s "${name}" -n "$w"
-			tmux set-window-opt -t "${name}" default-path "${default_path}"
+			#tmux set-window-option -t "${name}" default-path "${default_path}"
 			first=0
 		else
 			tmux new-window -t "${name}" -n "$w"
 		fi
 	done
-	#tmux set-option -t "${name}" status-right "#(hostname -I | awk '{print \$1}' | awk -F. '{print \$3 \".\" \$4}') ${show_default_path} #(date +%%H:%%M:%%S)"
-	tmux set-option -t "${name}" status-right "#(hostname -I | awk '{print \$1}' | awk -F. '{print \$3 \".\" \$4}') ${show_default_path}"
+	tmux set-option -t "${name}" status-right "${remote_server_ip} ${show_default_path} #(date +%%H:%%M:%%S)"
 elif [ "$type" = "minotor" ]
 then
 	:
