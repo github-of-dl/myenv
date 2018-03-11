@@ -23,9 +23,6 @@ export LANG=en_US.utf8
 export SVN_EDITOR=vim
 export GIT_EDITOR=vim
 
-#grep option 
-export GREP_OPTIONS="--binary-files=without-match "
-
 ulimit -c 1000000
 ulimit -n 4090
 
