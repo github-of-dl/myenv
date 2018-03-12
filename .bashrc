@@ -9,19 +9,20 @@ fi
 if [ -t 0 ] # avoid error message 'stty: standard input: Invalid argument' when executed within interactive shell, 
 then
 	stty -ixon
+
+	# disable readline-argument / alt-numkey
+	bind -r '\e-'
+	bind -r '\e0'
+	bind -r '\e1'
+	bind -r '\e2'
+	bind -r '\e3'
+	bind -r '\e4'
+	bind -r '\e5'
+	bind -r '\e6'
+	bind -r '\e7'
+	bind -r '\e8'
+	bind -r '\e9'
 fi
-# disable readline-argument / alt-numkey
-bind -r '\e-'
-bind -r '\e0'
-bind -r '\e1'
-bind -r '\e2'
-bind -r '\e3'
-bind -r '\e4'
-bind -r '\e5'
-bind -r '\e6'
-bind -r '\e7'
-bind -r '\e8'
-bind -r '\e9'
 
 # User specific aliases
 alias mk='make'
