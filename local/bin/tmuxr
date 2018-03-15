@@ -1,0 +1,61 @@
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+
+
+import getopt
+import sys
+import subprocess
+import os
+
+helpstr='''
+tmuxr [options]             create a new session
+    -n {name}               name of session
+    -w {list-of-windows}    create a list of window
+    -t                      show time on the status bar. default is not
+    -d                      show default-path on the status bar. default is not
+'''
+
+######## parse options ########
+optstring='w:n:td'
+optlist,args = getopt.getopt(sys.argv[1:], optstring);
+
+window_list=[]
+show_time=False
+name=None
+default_path=None
+for (opt,val) in optlist:
+	if(opt=='-w'):
+		window_list = [ x.strip() for x in val.split(',') ]
+	elif(opt=='-t'):
+		show_time=True;
+	elif(opt=='-n'):
+		name=val+" ";
+	elif(opt=='-d'):
+		default_path=os.getcwd();
+		#home=os.getenv('HOME');
+		#if(len(path)>20 and path.startswith(home)):
+		#	default_path=path.replace(home,'..');
+
+if(name is None):
+	print('give me a name');
+	print(helpstr);
+	exit(1);
+
+####### create tmux-session ########
+if(len(window_list)>0):
+	first_window_name=window_list.pop(0);
+	subprocess.check_call(['tmux', 'new-session', '-d', '-s', name, '-n', first_window_name]);
+else:
+	subprocess.check_call(['tmux', 'new-session', '-d', '-s', name]);
+
+###### create tmux-window #######
+for w in window_list:
+	subprocess.check_call(['tmux', 'new-window', '-t', name, '-n', w]);
+
+###### status-bar #######
+status_right='';
+if(default_path):
+	status_right = status_right + ' ' + default_path;
+if(show_time):
+	status_right = status_right + ' #(date +%%H:%%M:%%S)';
+subprocess.check_call(['tmux', 'set-option', '-t', name, 'status-right', status_right]);
