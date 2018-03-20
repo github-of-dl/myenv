@@ -13,7 +13,7 @@ MSGID_CLIPBOARD=1		# copy msg-body to clipboard
 
 def send_msg(ip, port, msgid, data):
 	fmt_str = "!II%ds" %(len(data));
-	msg = struct.pack(fmt_str, msgid,8+len(data), data);
+	msg = struct.pack(fmt_str, msgid,8+len(data), bytes(data,'utf8'));
 
 	sock = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
 	sock.settimeout(1);
@@ -22,4 +22,7 @@ def send_msg(ip, port, msgid, data):
 	sock.close();
 
 def send_to_host_clipboard(ip, port, data):
-	send_msg(ip, port, MSGID_CLIPBOARD, data);
+	try:
+		send_msg(ip, port, MSGID_CLIPBOARD, data);
+	except:
+		pass
