@@ -31,6 +31,7 @@ alias mysqlzyj='/usr/local/mysql/bin/mysql -uroot -plinekong'
 alias ls='ls --color=auto'
 alias bc='bc -l'   # enable floating
 alias callme="paplay ${HOME}/local/sounds/Positive.ogg"
+alias sh='/bin/bash' # `sh` in ubuntu means `dash` which does not support 'declare -a'
 #alias vim='/home/wdl/local/vim/bin/vim'
 
 
