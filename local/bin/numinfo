@@ -44,6 +44,9 @@ bin_number=`echo "obase=2;ibase=10;${dec_number}" | bc`
 oct_number=`echo "obase=8;ibase=10;${dec_number}" | bc`
 hex_number=`echo "obase=16;ibase=10;${dec_number}" | bc`
 
+bin_number_reverse=`sp "bytesplit('${bin_number}')"`
+echo "--- ${bin_number_reverse}"
+
 echo "dec:" $dec_number
 echo "bin:" ${bin_number}
 echo "oct:" ${oct_number}

@@ -31,7 +31,10 @@ do
 	if [ "$p" = "--" ]
 	then
 		arg_bp_sep=1
-		echo "set args $args" > ${tmp_file}
+		if [ -n "$args" ]
+		then
+			echo "set args $args" > ${tmp_file}
+		fi
 		continue
 	fi
 
