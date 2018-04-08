@@ -32,7 +32,7 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/program/go
 
 #python
-export PYTHONPATH=$HOME/.vim/python:$HOME/.local/bashpy/
+export PYTHONPATH=$HOME/.vim/python
 
 #project.xml
 export PROJECT_FILE=project.cfg
