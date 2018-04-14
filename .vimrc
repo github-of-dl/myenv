@@ -13,6 +13,8 @@ set wrapmargin=0	" no wrap
 "set wrap
 set formatoptions=l
 
+filetype on
+
 "maxsize and minsize current windows horizontally
 nmap - <C-W><C-_>
 nmap _ <C-W>=
