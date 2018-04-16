@@ -79,3 +79,8 @@ elseif has('python3')
 	vmap t= :py3 DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
 endif
 """""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""YouCompleteMe"""""""""""
+let g:ycm_confirm_extra_conf=0
+"""""""""""""""""""""""""""""""""""""""""
