@@ -21,7 +21,7 @@ cp -vrf ${dir}/.inputrc $HOME/.inputrc
 #bashprofile
 cp -vrf ${dir}/.bash_profile ${HOME}/
 cp -vrf ${dir}/.bashrc $HOME
-cp -vrf ${dir}/.bash_func.d $HOME/
+#cp -vrf ${dir}/.bash_func.d $HOME/
 
 #session_tag
 cd session_tag/
