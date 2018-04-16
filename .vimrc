@@ -62,18 +62,18 @@ let g:DLVI_Mail = 'donglei_program@126.com'
 
 " I HATE VIMSCRIPT
 if has('python')
-	noremap c :py DLVI_InsertComment()<CR>
-	noremap i :py DLVI_ImplementMethod()<CR>
-	noremap m :py DLVI_GetMyReadmine()<CR>
-	vmap y "+y :py DLVI_ClipBoard_VMode()<CR>	
-	nmap y "+ye :py DLVI_ClipBoard_NMode()<CR>
-	vmap = :py DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
+	noremap tc :py DLVI_InsertComment()<CR>
+	noremap ti :py DLVI_ImplementMethod()<CR>
+	noremap tm :py DLVI_GetMyReadmine()<CR>
+	vmap ty :py DLVI_ClipBoard_VMode()<CR>	
+	nmap ty :py DLVI_ClipBoard_NMode()<CR>
+	vmap t= :py DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
 elseif has('python3')
-	noremap c :py3 DLVI_InsertComment()<CR>
-	noremap i :py3 DLVI_ImplementMethod()<CR>
-	noremap m :py3 DLVI_GetMyReadmine()<CR>
-	vmap y "+y :py3 DLVI_ClipBoard_VMode()<CR>	
-	nmap y "+ye :py3 DLVI_ClipBoard_NMode()<CR>
-	vmap = :py3 DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
+	noremap tc :py3 DLVI_InsertComment()<CR>
+	noremap ti :py3 DLVI_ImplementMethod()<CR>
+	noremap tm :py3 DLVI_GetMyReadmine()<CR>
+	vmap ty :py3 DLVI_ClipBoard_VMode()<CR>	
+	nmap ty :py3 DLVI_ClipBoard_NMode()<CR>
+	vmap t= :py3 DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
 endif
 """""""""""""""""""""""""""""""""""
