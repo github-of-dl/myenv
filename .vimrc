@@ -14,6 +14,7 @@ set wrapmargin=0	" no wrap
 set formatoptions=l
 
 filetype on
+syntax on
 
 "maxsize and minsize current windows horizontally
 nmap - <C-W><C-_>
@@ -61,6 +62,7 @@ let g:DLVI_Auther = 'DL'
 let g:DLVI_Mail = 'donglei_program@126.com'
 
 " I HATE VIMSCRIPT
+" prefix 't'
 if has('python')
 	noremap tc :py DLVI_InsertComment()<CR>
 	noremap ti :py DLVI_ImplementMethod()<CR>
