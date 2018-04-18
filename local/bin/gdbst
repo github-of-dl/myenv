@@ -1,0 +1,54 @@
+#!/bin/bash
+
+#description:
+#   gdb {executable} and set arguments set {breakpoint}
+
+#usage
+#   gdbat {executable} arguments -- [breakpoint1 [breakpoint2] ]
+#   '--' is a seperator between arguemnts and breakpoints
+
+usage='gdbat {executable} [arg [arg] ] -- [breakpoint1 [breakpoint2] ]'
+
+
+if [ "$#" -lt 1 ]
+then
+    echo "$usage"
+    exit 1
+fi
+
+path=$1
+
+executable=`basename ${path}`
+
+tmp_file=`mktemp`
+
+# create gdb command file
+arg_bp_sep=0
+args=
+shift 1
+for p in "$@"
+do
+	if [ "$p" = "--" ]
+	then
+		arg_bp_sep=1
+		if [ -n "$args" ]
+		then
+			echo "set args $args" > ${tmp_file}
+		fi
+		continue
+	fi
+
+	if [ ${arg_bp_sep} -eq 0 ]
+	then
+		args="$args $p"
+	else
+		echo "b $p" >> ${tmp_file}
+	fi
+done
+
+
+#cat ${tmp_file}
+# run gdb
+gdb ${path} -x ${tmp_file}
+
+rm -f ${tmp_file}

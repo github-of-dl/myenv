@@ -12,3 +12,4 @@ fi
 search_target=$1
 findgrep cpp "$search_target"
 findgrep c	"$search_target"
+findgrep cc	"$search_target"

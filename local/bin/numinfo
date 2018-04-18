@@ -44,10 +44,14 @@ bin_number=`echo "obase=2;ibase=10;${dec_number}" | bc`
 oct_number=`echo "obase=8;ibase=10;${dec_number}" | bc`
 hex_number=`echo "obase=16;ibase=10;${dec_number}" | bc`
 
+bin_number_split=`sp "bytesplit('${bin_number}')"`
+float_number=`sp "tofloat('${dec_number}')"`
+
 echo "dec:" $dec_number
-echo "bin:" ${bin_number}
+echo "bin:" ${bin_number} " ||| " ${bin_number_split}
 echo "oct:" ${oct_number}
 echo "hex:" ${hex_number}
+echo "float:" ${float_number}
 
 str_datetime=`date -d @${dec_number} +'%Y-%m-%d %H:%M:%S'`
 
