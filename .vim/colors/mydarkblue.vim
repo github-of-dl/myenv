@@ -6,6 +6,7 @@
 " [note: looks bit uglier with come terminal palettes,
 " but is fine on default linux console palette.]
 
+" set bg=dark
 set bg=dark
 hi clear
 if exists("syntax_on")
@@ -14,7 +15,7 @@ endif
 
 let colors_name = "mydarkblue"
 
-hi Normal		guifg=#c0c0c0 guibg=#000040						ctermfg=gray ctermbg=black
+hi Normal		guifg=#c0c0c0 guibg=#000040						ctermfg=255 ctermbg=black
 hi ErrorMsg		guifg=#ffffff guibg=#287eff						ctermfg=white ctermbg=lightblue
 hi Visual		guifg=#8080ff guibg=fg		gui=reverse				ctermfg=lightblue ctermbg=fg cterm=reverse
 hi VisualNOS	guifg=#8080ff guibg=fg		gui=reverse,underline	ctermfg=lightblue ctermbg=fg cterm=reverse,underline
@@ -49,9 +50,9 @@ hi Cursor	guifg=black guibg=yellow ctermfg=black ctermbg=yellow
 hi lCursor	guifg=black guibg=white ctermfg=black ctermbg=white
 
 
-" hi Comment	guifg=#80a0ff ctermfg=darkred
-hi Comment	guifg=#80a0ff ctermfg=red
-hi Constant	ctermfg=magenta guifg=#ffa0a0 cterm=none
+hi Comment	guifg=#80a0ff ctermfg=gray
+" C++ constant string
+hi Constant	ctermfg=221 guifg=#ffa0a0 cterm=none
 hi Special	ctermfg=brown guifg=Orange cterm=none gui=none
 hi Identifier	ctermfg=cyan guifg=#40ffff cterm=none
 hi Statement	ctermfg=yellow cterm=none guifg=#ffff60 gui=none

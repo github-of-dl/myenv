@@ -83,4 +83,10 @@ endif
 
 """"""""""""""""""YouCompleteMe"""""""""""
 let g:ycm_confirm_extra_conf=0
+
+nmap gc :YcmCompleter GoToDeclaration<CR>
+nmap gf :YcmCompleter GoToDefinition<CR>
+nmap <C-]> :YcmCompleter GoTo<CR>
+nmap gr :YcmCompleter GoToReferences<CR><CR>
+
 """""""""""""""""""""""""""""""""""""""""
