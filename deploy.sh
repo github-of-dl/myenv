@@ -43,3 +43,8 @@ cd -
 
 #tmux
 cp -vrf .tmux.conf .tmux ${HOME}
+
+
+#--------------------install python----------------
+mkdir -p ${local_dir}/python
+cp -vrf ${dir}/python/dlutils.py ${local_dir}/python/
