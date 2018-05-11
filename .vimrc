@@ -13,6 +13,8 @@ set wrapmargin=0	" no wrap
 "set wrap
 set formatoptions=l
 
+set backspace=indent,eol,start " make backspace work like in most other programs
+
 filetype on
 syntax on
 

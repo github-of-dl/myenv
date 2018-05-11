@@ -33,7 +33,8 @@ hi MoreMsg			ctermfg=darkgreen	ctermfg=darkgreen
 hi Question			guifg=green gui=none ctermfg=green cterm=none
 hi NonText			guifg=#0030ff		ctermfg=darkblue
 
-hi StatusLine	guifg=blue guibg=darkgray gui=none		ctermfg=blue ctermbg=gray term=none cterm=none
+" title of split window
+hi StatusLine	guifg=blue guibg=darkgray gui=none		ctermfg=black ctermbg=gray term=none cterm=none
 hi StatusLineNC	guifg=black guibg=darkgray gui=none		ctermfg=black ctermbg=gray term=none cterm=none
 hi VertSplit	guifg=black guibg=darkgray gui=none		ctermfg=black ctermbg=gray term=none cterm=none
 
@@ -57,7 +58,8 @@ hi Special	ctermfg=brown guifg=Orange cterm=none gui=none
 hi Identifier	ctermfg=cyan guifg=#40ffff cterm=none
 hi Statement	ctermfg=yellow cterm=none guifg=#ffff60 gui=none
 hi PreProc	ctermfg=magenta guifg=#ff80ff gui=none cterm=none
-hi type		ctermfg=green guifg=#60ff60 gui=none cterm=none
+" C++ keyword (int,typedef,...)
+hi type		ctermfg=164 guifg=#60ff60 gui=none cterm=none
 hi Underlined	cterm=underline term=underline
 hi Ignore	guifg=bg ctermfg=bg
 
