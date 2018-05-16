@@ -74,3 +74,18 @@ if has('cscope')
 	nmap <C-\>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 	nmap <C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>
 endif
+
+" pwd=servercode/scene_service
+" change directory to ../build/scene_service && make current file 
+function! DLVI_mkCurFile()
+	let filename=expand('%:t')
+	let filenameobj=filename . ".o"
+	let dir_head_name=expand('%:p:h:h')
+	let dir_base_name=expand('%:p:h:t')
+	"echo dir_head_name
+	"echo dir_base_name
+	let dir=dir_head_name . "/build/" . dir_base_name
+	
+	let cmd="make -C " . dir . " " . filenameobj
+	exe cmd
+endfunction

@@ -80,11 +80,13 @@ elseif has('python3')
 	nmap ty :py3 DLVI_ClipBoard_NMode()<CR>
 	vmap t= :py3 DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
 endif
+nmap ts :call DLVI_mkCurFile()<CR>
 """""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""YouCompleteMe"""""""""""
 let g:ycm_confirm_extra_conf=0
+let g:ycm_show_diagnostics_ui=0
 
 nmap gc :YcmCompleter GoToDeclaration<CR>
 nmap gf :YcmCompleter GoToDefinition<CR>
@@ -92,3 +94,4 @@ nmap <C-]> :YcmCompleter GoTo<CR>
 nmap gr :YcmCompleter GoToReferences<CR><CR>
 
 """""""""""""""""""""""""""""""""""""""""
+
