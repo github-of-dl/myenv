@@ -80,7 +80,7 @@ elseif has('python3')
 	nmap ty :py3 DLVI_ClipBoard_NMode()<CR>
 	vmap t= :py3 DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
 endif
-nmap ts :call DLVI_mkCurFile()<CR>
+nmap ts :call DLVI_mkCurFile()<CR><CR><CR> cw<CR>
 """""""""""""""""""""""""""""""""""
 
 
