@@ -2,26 +2,49 @@
 # deploy
 
 # ===================config=========================
-local_dir=$HOME/.local/
+LOCAL_DIR=$HOME/.local/
+DEPLOY_TMP_DIR=deploy_tmp_dir
 
-
-dir=`dirname $0`
 
 #----------------------prepare-----------------------
-mkdir -p ${local_dir}
+mkdir -p ${LOCAL_DIR}
+rm -rf  ${DEPLOY_TMP_DIR}
+mkdir -p ${DEPLOY_TMP_DIR}
+for f in `ls`
+do
+	if [ $f != ${DEPLOY_TMP_DIR} ]
+	then
+		cp -rfv $f ${DEPLOY_TMP_DIR}/
+	fi
+done
+
+
+#----------------------replace configs---------------
+. config.sh
+files=`find  ${DEPLOY_TMP_DIR} -path '*/local/bin/*' -o -name '*.py'`
+for f in $files
+do
+	echo "replace configs with file $f"
+	sp "replace_in_file('$f', 'REP_REDMINE_LOGIN_PAGE', '${REP_REDMINE_LOGIN_PAGE}')"
+	sp "replace_in_file('$f', 'REP_REDMINE_USERNAME', '${REP_REDMINE_USERNAME}')"
+	sp "replace_in_file('$f', 'REP_REDMINE_PASSWORD', '${REP_REDMINE_PASSWORD}')"
+	sp "replace_in_file('$f', 'REP_REDMINE_MINE', '${REP_REDMINE_MINE}')"
+	sp "replace_in_file('$f', 'REP_REDMINE_TRACE', '${REP_REDMINE_TRACE}')"
+done
 
 #----------------------install-----------------------
 #vim
-cp -vrf ${dir}/.vimrc $HOME/.vimrc
-cp -vrf ${dir}/.vim $HOME/
+cp -vrf ${DEPLOY_TMP_DIR}/vimrc $HOME/.vimrc
+rm -rf $HOME/.vim
+cp -vrf ${DEPLOY_TMP_DIR}/vim $HOME/.vim
 
 #inputrc
-cp -vrf ${dir}/.inputrc $HOME/.inputrc
+cp -vrf ${DEPLOY_TMP_DIR}/.inputrc $HOME/.inputrc
 
 #bashprofile
-cp -vrf ${dir}/.bash_profile ${HOME}/
-cp -vrf ${dir}/.bashrc $HOME
-#cp -vrf ${dir}/.bash_func.d $HOME/
+cp -vrf ${DEPLOY_TMP_DIR}/.bash_profile ${HOME}/
+cp -vrf ${DEPLOY_TMP_DIR}/.bashrc $HOME
+#cp -vrf ${DEPLOY_TMP_DIR}/.bash_func.d $HOME/
 
 #session_tag
 cd session_tag/
@@ -29,16 +52,16 @@ sh install.sh
 cd -
 
 #git
-cp -vrf ${dir}/.gitconfig $HOME/.gitconfig
+cp -vrf ${DEPLOY_TMP_DIR}/.gitconfig $HOME/.gitconfig
 
 
 #local
-cp -vrf ${dir}/local/* ${local_dir}
+cp -vrf ${DEPLOY_TMP_DIR}/local/* ${LOCAL_DIR}
 
 #c
 cd c
 make all
-cp -vrf bin ${local_dir}/
+cp -vrf bin ${LOCAL_DIR}/
 cd -
 
 #tmux
@@ -46,5 +69,5 @@ cp -vrf .tmux.conf .tmux ${HOME}
 
 
 #--------------------install python----------------
-mkdir -p ${local_dir}/python
-cp -vrf ${dir}/python/dlutils.py ${local_dir}/python/
+mkdir -p ${LOCAL_DIR}/python
+cp -vrf ${DEPLOY_TMP_DIR}/python/dlutils.py ${LOCAL_DIR}/python/

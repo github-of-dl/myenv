@@ -15,11 +15,11 @@ def DLVI_GetMyReadmine():
 	(row,col) = w.cursor;
 	row=row-1;
 
-	http, headers = redmine.login('http://10.10.48.243:8080/redmine/login', 'wangdonglei', 'wangdonglei');
-	redmines = redmine.get_redmines(http, headers, 'http://10.10.48.243:8080/redmine/projects/g1-005/issues?query_id=192');
+	http, headers = redmine.login('REP_REDMINE_LOGIN_PAGE', 'REP_REDMINE_USERNAME', 'REP_REDMINE_PASSWORD');
+	redmines = redmine.get_redmines(http, headers, 'REP_REDMINE_MINE');
 	for k,v in redmines.iteritems():
 		utility.insert_line(b, row, "#closes #%d %s" %(k,v));	
-	redmines = redmine.get_redmines(http, headers, 'http://10.10.48.243:8080/redmine/projects/g1-005/issues?query_id=195');
+	redmines = redmine.get_redmines(http, headers, 'REP_REDMINE_TRACE');
 	for k,v in redmines.iteritems():
 		utility.insert_line(b, row, "#closes #%d %s" %(k,v));	
 

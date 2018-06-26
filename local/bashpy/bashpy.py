@@ -48,6 +48,21 @@ def tofloat(uint32_str):
 		float_number = (1 + fraction_bit*math.pow(2,-23)) * math.pow(2,exponent_bit-127);
 		print(float_number);
 	
+def replace_in_file(filename, old, new):
+	'''
+		replace string@old with string@new in file@filename
+	'''
+	print(old, new);
+	#f = open(filename,'r');
+	#lines = f.readlines();
+	#f.close();
+	#newlines=[]
+	#for line in lines:
+	#	newlines.append( line.replace(old, new) );
+	#f = open(filename, 'w');
+	#f.writelines(newlines);
+	#f.close();
+
 if __name__ == '__main__':
 	string=sys.argv[1];
 	tofloat(string);
