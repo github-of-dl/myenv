@@ -1,3 +1,4 @@
 *.pyc
 *.swp
 deploy_tmp_dir/
+config.sh
