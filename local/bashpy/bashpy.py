@@ -52,16 +52,15 @@ def replace_in_file(filename, old, new):
 	'''
 		replace string@old with string@new in file@filename
 	'''
-	print(old, new);
-	#f = open(filename,'r');
-	#lines = f.readlines();
-	#f.close();
-	#newlines=[]
-	#for line in lines:
-	#	newlines.append( line.replace(old, new) );
-	#f = open(filename, 'w');
-	#f.writelines(newlines);
-	#f.close();
+	f = open(filename,'r');
+	lines = f.readlines();
+	f.close();
+	newlines=[]
+	for line in lines:
+		newlines.append( line.replace(old, new) );
+	f = open(filename, 'w');
+	f.writelines(newlines);
+	f.close();
 
 if __name__ == '__main__':
 	string=sys.argv[1];
